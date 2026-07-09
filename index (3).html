@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noor Quran Academy — Live Online Qur'an Classes for UK, USA &amp; Worldwide</title>
+<meta name="description" content="One-to-one live online Qur'an classes for children and adults in the UK, USA, Canada, Australia and worldwide. Certified male and female teachers. Free trial class.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#1B2A4A;
+    --ink-deep:#0F1A30;
+    --gold:#AD8A34;
+    --gold-light:#D8BC78;
+    --teal:#0F4C43;
+    --parchment:#F6EFDE;
+    --parchment-dark:#EAE0C4;
+    --charcoal:#2A2620;
+    --white:#FFFDF8;
+    --max:1180px;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--charcoal);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.display{
+    font-family:'Amiri', serif;
+    font-weight:700;
+    color:var(--ink);
+    margin:0;
+    line-height:1.15;
+  }
+
+  a{ color:inherit; }
+  img,svg{ display:block; max-width:100%; }
+  button{ font-family:inherit; cursor:pointer; }
+
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 28px; }
+
+  .eyebrow{
+    font-size:.72rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    font-weight:600;
+    color:var(--teal);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background:var(--gold);
+    display:inline-block;
+  }
+
+  :focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:3px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(246,239,222,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--parchment-dark);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+    max-width:var(--max); margin:0 auto;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Amiri', serif; font-weight:700; font-size:1.28rem;
+    color:var(--ink); text-decoration:none; white-space:nowrap;
+  }
+  .logo .mark{ width:30px; height:30px; flex:none; }
+  .nav-links{
+    display:flex; align-items:center; gap:32px;
+    list-style:none; margin:0; padding:0;
+  }
+  .nav-links a{
+    text-decoration:none; font-size:.92rem; font-weight:500;
+    color:var(--charcoal); position:relative; padding:4px 0;
+  }
+  .nav-links a::after{
+    content:""; position:absolute; left:0; bottom:-2px;
+    width:0; height:1px; background:var(--gold);
+    transition:width .25s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:12px 24px; border-radius:2px; border:1px solid transparent;
+    font-size:.9rem; font-weight:600; letter-spacing:.02em;
+    text-decoration:none; transition:transform .2s ease, background .2s ease, color .2s ease;
+  }
+  .btn-primary{ background:var(--ink); color:var(--white); }
+  .btn-primary:hover{ background:var(--ink-deep); transform:translateY(-1px); }
+  .btn-ghost{ background:transparent; color:var(--ink); border-color:var(--ink); }
+  .btn-ghost:hover{ background:var(--ink); color:var(--white); }
+  .btn-gold{ background:var(--gold); color:var(--white); }
+  .btn-gold:hover{ background:#8f7127; transform:translateY(-1px); }
+
+  .nav-cta{ display:flex; align-items:center; gap:16px; }
+  .burger{ display:none; background:none; border:none; padding:6px; }
+  .burger span{ display:block; width:24px; height:2px; background:var(--ink); margin:5px 0; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:88px 0 70px;
+    background:
+      radial-gradient(ellipse at 78% 8%, rgba(173,138,52,.10), transparent 55%),
+      var(--parchment);
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center;
+    position:relative; z-index:2;
+  }
+  .hero h1{ font-size:clamp(2.2rem, 4.2vw, 3.4rem); margin:18px 0 22px; }
+  .hero h1 em{ font-style:italic; color:var(--gold); }
+  .hero p.lead{
+    font-size:1.08rem; max-width:46ch; color:#4a453c; margin-bottom:30px;
+  }
+  .hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; margin-bottom:34px; }
+  .trust-row{
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    font-size:.85rem; color:#5b5648;
+  }
+  .trust-row .flags{
+    display:flex; gap:8px; font-size:.78rem; letter-spacing:.04em;
+  }
+  .trust-row .flags span{
+    border:1px solid var(--gold-light); padding:3px 10px; border-radius:20px;
+    background:var(--white);
+  }
+
+  .hero-star-wrap{
+    position:relative; display:flex; align-items:center; justify-content:center;
+    min-height:340px;
+  }
+  .hero-star-wrap svg{ width:100%; max-width:400px; }
+  .star-line{
+    fill:none; stroke:var(--gold); stroke-width:1.4;
+    stroke-dasharray:900; stroke-dashoffset:900;
+    animation:draw 2.6s ease forwards .3s;
+  }
+  .star-line.inner{ stroke:var(--teal); stroke-width:1; stroke-dasharray:500; stroke-dashoffset:500; animation-duration:2.2s; animation-delay:.8s; }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+
+  /* ---------- DIVIDER ---------- */
+  .ornament-divider{
+    display:flex; align-items:center; justify-content:center; gap:18px;
+    padding:6px 0 46px;
+  }
+  .ornament-divider .line{ flex:1; max-width:120px; height:1px; background:var(--parchment-dark); }
+  .ornament-divider svg{ width:34px; height:34px; opacity:.85; }
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{ padding:86px 0; }
+  .section-head{ max-width:640px; margin-bottom:52px; }
+  .section-head h2{ font-size:clamp(1.7rem, 3vw, 2.3rem); margin-top:14px; }
+  .section-head p{ color:#5b5648; margin-top:14px; font-size:1.02rem; }
+  .band-ink{ background:var(--ink); color:var(--parchment); }
+  .band-ink h2, .band-ink h3{ color:var(--white); }
+  .band-ink .section-head p{ color:#c7cede; }
+
+  /* ---------- FEATURES ---------- */
+  .feat-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:2px;
+    background:var(--parchment-dark);
+    border:1px solid var(--parchment-dark);
+  }
+  .feat-card{
+    background:var(--parchment); padding:34px 30px; min-height:190px;
+  }
+  .feat-card svg{ width:30px; height:30px; margin-bottom:16px; color:var(--gold); stroke:var(--gold); }
+  .feat-card h3{ font-size:1.08rem; margin-bottom:8px; }
+  .feat-card p{ font-size:.92rem; color:#5b5648; margin:0; }
+
+  /* ---------- COURSES ---------- */
+  .course-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;
+  }
+  .course-card{
+    background:var(--white); border:1px solid var(--parchment-dark);
+    padding:30px 28px; position:relative; transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .course-card:hover{ transform:translateY(-4px); box-shadow:0 16px 34px -18px rgba(27,42,74,.35); }
+  .course-tag{
+    font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; font-weight:600;
+    color:var(--teal); border:1px solid var(--teal); display:inline-block;
+    padding:4px 10px; border-radius:20px; margin-bottom:16px;
+  }
+  .course-card h3{ font-size:1.18rem; margin-bottom:10px; }
+  .course-card p{ font-size:.92rem; color:#5b5648; margin-bottom:16px; }
+  .course-meta{ display:flex; justify-content:space-between; font-size:.82rem; color:var(--gold); font-weight:600; border-top:1px dashed var(--parchment-dark); padding-top:14px; }
+
+  /* ---------- HOW IT WORKS ---------- */
+  .steps{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:24px; counter-reset:step;
+  }
+  .step{ position:relative; padding-top:52px; }
+  .step .num{
+    font-family:'Amiri', serif; font-size:2.6rem; color:var(--gold-light);
+    position:absolute; top:-14px; left:0; font-weight:700; z-index:0;
+  }
+  .step h3{ font-size:1.05rem; margin-bottom:8px; position:relative; z-index:1; }
+  .step p{ font-size:.9rem; color:#c7cede; position:relative; z-index:1; }
+
+  /* ---------- TEACHERS ---------- */
+  .teacher-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:22px;
+  }
+  .teacher-card{
+    background:var(--white); border:1px solid var(--parchment-dark); padding:26px 22px;
+    text-align:left;
+  }
+  .avatar{
+    width:56px; height:56px; border-radius:50%; background:var(--ink);
+    color:var(--gold-light); display:flex; align-items:center; justify-content:center;
+    font-family:'Amiri',serif; font-size:1.3rem; margin-bottom:16px;
+  }
+  .teacher-card h3{ font-size:1.02rem; margin-bottom:4px; }
+  .teacher-card .role{ font-size:.8rem; color:var(--teal); font-weight:600; margin-bottom:10px; }
+  .teacher-card p{ font-size:.86rem; color:#5b5648; margin:0 0 12px; }
+  .teacher-card .tags{ display:flex; flex-wrap:wrap; gap:6px; }
+  .teacher-card .tags span{
+    font-size:.72rem; background:var(--parchment); border:1px solid var(--parchment-dark);
+    padding:3px 9px; border-radius:20px; color:#5b5648;
+  }
+
+  /* ---------- TIMEZONE STRIP ---------- */
+  .tz-strip{
+    background:var(--teal); color:var(--white); padding:54px 0;
+  }
+  .tz-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
+  .tz-grid h2{ color:var(--white); font-size:1.7rem; }
+  .tz-clock{ display:flex; gap:26px; flex-wrap:wrap; }
+  .tz-clock div{ background:rgba(255,255,255,.08); padding:18px 22px; border-radius:2px; min-width:150px; }
+  .tz-clock .city{ font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; opacity:.75; }
+  .tz-clock .time{ font-family:'Amiri', serif; font-size:1.5rem; margin-top:4px; color:var(--gold-light); }
+
+  /* ---------- PRICING ---------- */
+  .price-toggle{
+    display:inline-flex; border:1px solid var(--ink); border-radius:30px; padding:4px; margin-bottom:44px;
+  }
+  .price-toggle button{
+    border:none; background:none; padding:8px 22px; border-radius:26px; font-size:.86rem; font-weight:600; color:var(--ink);
+  }
+  .price-toggle button.active{ background:var(--ink); color:var(--white); }
+  .price-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .price-card{
+    background:var(--white); border:1px solid var(--parchment-dark); padding:36px 30px; position:relative;
+  }
+  .price-card.popular{ border-color:var(--gold); box-shadow:0 20px 40px -22px rgba(173,138,52,.4); }
+  .price-card.popular::before{
+    content:"Most popular"; position:absolute; top:-13px; left:30px;
+    background:var(--gold); color:var(--white); font-size:.68rem; letter-spacing:.08em;
+    text-transform:uppercase; padding:5px 12px; font-weight:700;
+  }
+  .price-card h3{ font-size:1.1rem; margin-bottom:6px; }
+  .price-card .sub{ font-size:.85rem; color:#5b5648; margin-bottom:20px; }
+  .price-amount{ font-family:'Amiri', serif; font-size:2.4rem; color:var(--ink); margin-bottom:4px; }
+  .price-amount span{ font-size:1rem; font-family:'Work Sans',sans-serif; color:#5b5648; font-weight:400; }
+  .price-card ul{ list-style:none; padding:0; margin:22px 0 26px; }
+  .price-card li{ font-size:.88rem; padding:7px 0; border-top:1px dashed var(--parchment-dark); display:flex; gap:8px; }
+  .price-card li:first-child{ border-top:none; }
+  .price-card li svg{ width:14px; height:14px; color:var(--teal); flex:none; margin-top:4px; }
+  .price-card .btn{ width:100%; }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .test-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; }
+  .test-card{
+    background:var(--parchment); border-left:2px solid var(--gold); padding:26px 26px;
+  }
+  .test-card p.quote{ font-family:'Amiri', serif; font-style:italic; font-size:1.05rem; color:var(--ink); margin-bottom:16px; }
+  .test-card .who{ font-size:.84rem; color:#5b5648; font-weight:600; }
+  .test-card .where{ font-size:.78rem; color:var(--teal); }
+
+  /* ---------- FAQ ---------- */
+  .faq-item{ border-bottom:1px solid var(--parchment-dark); }
+  .faq-q{
+    width:100%; text-align:left; background:none; border:none; padding:22px 0;
+    display:flex; justify-content:space-between; align-items:center; gap:20px;
+    font-size:1.02rem; font-weight:600; color:var(--ink); font-family:'Amiri', serif;
+  }
+  .faq-q .plus{ position:relative; width:16px; height:16px; flex:none; }
+  .faq-q .plus::before, .faq-q .plus::after{
+    content:""; position:absolute; background:var(--gold); transition:transform .25s ease;
+  }
+  .faq-q .plus::before{ width:16px; height:2px; top:7px; left:0; }
+  .faq-q .plus::after{ width:2px; height:16px; top:0; left:7px; }
+  .faq-item.open .faq-q .plus::after{ transform:rotate(90deg); opacity:0; }
+  .faq-a{ max-height:0; overflow:hidden; transition:max-height .3s ease; }
+  .faq-a p{ padding:0 0 22px; font-size:.94rem; color:#5b5648; max-width:70ch; }
+
+  /* ---------- CTA / FORM ---------- */
+  .cta-band{
+    background:var(--ink); color:var(--white); padding:70px 0;
+  }
+  .cta-grid{ display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:start; }
+  .cta-grid h2{ color:var(--white); font-size:1.9rem; margin-bottom:16px; }
+  .cta-grid p{ color:#c7cede; max-width:44ch; }
+  .contact-list{ margin-top:24px; display:flex; flex-direction:column; gap:12px; font-size:.92rem; }
+  .contact-list a{ text-decoration:none; color:var(--gold-light); }
+
+  form.trial-form{ display:grid; gap:14px; }
+  form.trial-form input, form.trial-form select, form.trial-form textarea{
+    width:100%; padding:13px 14px; border:1px solid rgba(255,255,255,.25);
+    background:rgba(255,255,255,.06); color:var(--white); font-family:inherit; font-size:.92rem; border-radius:2px;
+  }
+  form.trial-form input::placeholder, form.trial-form textarea::placeholder{ color:#a9b2c4; }
+  form.trial-form label{ font-size:.78rem; letter-spacing:.05em; text-transform:uppercase; color:#a9b2c4; margin-bottom:-6px; }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .form-note{ font-size:.8rem; color:#a9b2c4; }
+  #formStatus{ font-size:.88rem; color:var(--gold-light); min-height:20px; }
+
+  /* ---------- FOOTER ---------- */
+  footer{ background:var(--ink-deep); color:#c7cede; padding:56px 0 30px; font-size:.88rem; }
+  .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:40px; }
+  .foot-grid h4{ color:var(--white); font-family:'Amiri',serif; font-size:1rem; margin-bottom:16px; }
+  .foot-grid ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+  .foot-grid a{ text-decoration:none; color:#c7cede; }
+  .foot-grid a:hover{ color:var(--gold-light); }
+  .foot-logo{ display:flex; align-items:center; gap:10px; font-family:'Amiri',serif; font-size:1.2rem; color:var(--white); margin-bottom:14px; }
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,.1); padding-top:22px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:.8rem; color:#8993ab;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:980px){
+    .nav-links{ display:none; }
+    .burger{ display:block; }
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-star-wrap{ order:-1; min-height:220px; }
+    .feat-grid{ grid-template-columns:repeat(2,1fr); }
+    .course-grid{ grid-template-columns:repeat(2,1fr); }
+    .steps{ grid-template-columns:repeat(2,1fr); row-gap:40px; }
+    .teacher-grid{ grid-template-columns:repeat(2,1fr); }
+    .price-grid{ grid-template-columns:1fr; max-width:420px; margin:0 auto; }
+    .test-grid{ grid-template-columns:1fr; }
+    .tz-grid{ grid-template-columns:1fr; }
+    .cta-grid{ grid-template-columns:1fr; }
+    .foot-grid{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width:600px){
+    .feat-grid, .course-grid, .steps, .teacher-grid{ grid-template-columns:1fr; }
+    .form-row{ grid-template-columns:1fr; }
+    .foot-grid{ grid-template-columns:1fr; }
+    section{ padding:60px 0; }
+  }
+
+  .nav-links.mobile-open{
+    display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0;
+    background:var(--parchment); padding:20px 28px 28px; gap:18px; border-bottom:1px solid var(--parchment-dark);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#top" class="logo">
+      <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 3 L23 15 L35 12 L26 20 L35 28 L23 25 L20 37 L17 25 L5 28 L14 20 L5 12 L17 15 Z" stroke="#AD8A34" stroke-width="1.3" fill="none"/>
+      </svg>
+      Noor Quran Academy
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#teachers">Teachers</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#trial" class="btn btn-primary">Book Free Trial</a>
+      <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="padding-top:88px;">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Live 1-to-1 Online Qur'an Classes</span>
+        <h1>Learn the Qur'an with a teacher who fits <em>your</em> timezone, not the other way round.</h1>
+        <p class="lead">Certified male and female tutors teaching children and adults across the UK, USA, Canada, Australia and beyond — Qur'an reading, Tajweed and Hifz, one student at a time, over Zoom or Skype.</p>
+        <div class="hero-ctas">
+          <a href="#trial" class="btn btn-gold">Book your free trial class</a>
+          <a href="#pricing" class="btn btn-ghost">See pricing</a>
+        </div>
+        <div class="trust-row">
+          <span>Families currently learning with us in</span>
+          <span class="flags"><span>London</span><span>New York</span><span>Toronto</span><span>Houston</span><span>Sydney</span></span>
+        </div>
+      </div>
+      <div class="hero-star-wrap" aria-hidden="true">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <path class="star-line" d="M200 40 L228 150 L340 122 L252 196 L340 270 L228 242 L200 352 L172 242 L60 270 L148 196 L60 122 L172 150 Z"/>
+          <circle class="star-line inner" cx="200" cy="196" r="86"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament-divider">
+    <span class="line"></span>
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 4 L23 16 L35 13 L26 20 L35 27 L23 24 L20 36 L17 24 L5 27 L14 20 L5 13 L17 16 Z" stroke="#AD8A34" stroke-width="1.2"/></svg>
+    <span class="line"></span>
+  </div>
+
+  <!-- FEATURES -->
+  <section id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Why families choose us</span>
+        <h2>Everything a good madrassah gives you — without the school run.</h2>
+        <p>Small enough to know your child's name, structured enough to track real progress against a proper curriculum.</p>
+      </div>
+      <div class="feat-grid">
+        <div class="feat-card">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l8 4-8 4-8-4 8-4z" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5" stroke-width="1.6"/></svg>
+          <h3>Certified, Ijazah-holding teachers</h3>
+          <p>Every tutor is vetted for Tajweed accuracy and holds a recognised Ijazah or equivalent qualification.</p>
+        </div>
+        <div class="feat-card">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="7" r="3" stroke-width="1.6"/><circle cx="17" cy="8" r="2.3" stroke-width="1.6"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke-width="1.6"/><path d="M14 14.5c2.6.3 5 2.4 5 5.5" stroke-width="1.6"/></svg>
+          <h3>Male &amp; female tutors</h3>
+          <p>Choose a teacher for sons, daughters or adult learners — including dedicated sisters-only tutors.</p>
+        </div>
+        <div class="feat-card">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="16" rx="1" stroke-width="1.6"/><path d="M3 9h18" stroke-width="1.6"/><path d="M8 2v4M16 2v4" stroke-width="1.6"/></svg>
+          <h3>Scheduled around your day</h3>
+          <p>Morning, after-school or evening slots across GMT, EST, PST and beyond — swap a slot with 12 hours' notice.</p>
+        </div>
+        <div class="feat-card">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 19V6a2 2 0 012-2h10l4 4v11a2 2 0 01-2 2H6a2 2 0 01-2-2z" stroke-width="1.6"/><path d="M8 9h8M8 13h8M8 17h5" stroke-width="1.6"/></svg>
+          <h3>A real curriculum, not ad-hoc lessons</h3>
+          <p>From Noorani Qaida through to full Tajweed and Hifz, with a written plan and monthly progress notes.</p>
+        </div>
+        <div class="feat-card">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21s-7-4.5-9.5-9C.5 8 2 4 6 4c2.3 0 3.7 1.3 6 4 2.3-2.7 3.7-4 6-4 4 0 5.5 4 3.5 8-2.5 4.5-9.5 9-9.5 9z" stroke-width="1.6"/></svg>
+          <h3>Free, no-obligation trial</h3>
+          <p>Meet your teacher, gauge fit and level — pay nothing until you decide to continue.</p>
+        </div>
+        <div class="feat-card">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="13" rx="2" stroke-width="1.6"/><path d="M2 10h20" stroke-width="1.6"/></svg>
+          <h3>Simple, secure payment</h3>
+          <p>Pay monthly by card or PayPal in GBP or USD — cancel any time, no long contracts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament-divider">
+    <span class="line"></span>
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 4 L23 16 L35 13 L26 20 L35 27 L23 24 L20 36 L17 24 L5 27 L14 20 L5 13 L17 16 Z" stroke="#0F4C43" stroke-width="1.2"/></svg>
+    <span class="line"></span>
+  </div>
+
+  <!-- COURSES -->
+  <section id="courses">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Courses</span>
+        <h2>Wherever you're starting from, there's a clear next step.</h2>
+        <p>Every course is taught one-to-one and adapted to age and pace — a five-year-old and a working adult never follow the same lesson plan.</p>
+      </div>
+      <div class="course-grid">
+        <div class="course-card">
+          <span class="course-tag">Beginners</span>
+          <h3>Noorani Qaida</h3>
+          <p>Arabic letters, correct pronunciation and basic joining rules — the foundation every reader needs before opening the Qur'an itself.</p>
+          <div class="course-meta"><span>Ages 4+</span><span>2–3 months</span></div>
+        </div>
+        <div class="course-card">
+          <span class="course-tag">Reading &amp; Tajweed</span>
+          <h3>Qur'an Reading with Tajweed</h3>
+          <p>Fluent, correctly-articulated recitation with the rules of Tajweed applied naturally, not just memorised as theory.</p>
+          <div class="course-meta"><span>All ages</span><span>Ongoing</span></div>
+        </div>
+        <div class="course-card">
+          <span class="course-tag">Memorisation</span>
+          <h3>Hifz (Qur'an Memorisation)</h3>
+          <p>A structured daily and weekly revision system, with a teacher who tracks retention, not just new pages set.</p>
+          <div class="course-meta"><span>Ages 7+</span><span>Multi-year</span></div>
+        </div>
+        <div class="course-card">
+          <span class="course-tag">Understanding</span>
+          <h3>Islamic Studies</h3>
+          <p>Aqeedah, Fiqh essentials, Seerah and daily-life etiquette, taught in age-appropriate, discussion-based lessons.</p>
+          <div class="course-meta"><span>Ages 6+</span><span>Term-based</span></div>
+        </div>
+        <div class="course-card">
+          <span class="course-tag">Language</span>
+          <h3>Qur'anic &amp; Conversational Arabic</h3>
+          <p>Build the vocabulary and grammar to understand the Qur'an directly, alongside everyday spoken Arabic.</p>
+          <div class="course-meta"><span>Adults &amp; teens</span><span>Ongoing</span></div>
+        </div>
+        <div class="course-card">
+          <span class="course-tag">Just for kids</span>
+          <h3>Little Reciters (ages 5–12)</h3>
+          <p>Short, high-energy lessons designed around a child's attention span, with games, stickers and gentle memorisation targets.</p>
+          <div class="course-meta"><span>Ages 5–12</span><span>Ongoing</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="band-ink">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" style="color:var(--gold-light)">How it works</span>
+        <h2>From first message to first class, usually within 48 hours.</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="num">01</span>
+          <h3>Book a free trial</h3>
+          <p>Tell us the student's age, level and preferred time zone via the form or WhatsApp.</p>
+        </div>
+        <div class="step">
+          <span class="num">02</span>
+          <h3>Meet your teacher</h3>
+          <p>A short live session on Zoom or Skype to check pronunciation, level and comfort.</p>
+        </div>
+        <div class="step">
+          <span class="num">03</span>
+          <h3>Get a learning plan</h3>
+          <p>We set a course, weekly schedule and clear milestones for the next 3 months.</p>
+        </div>
+        <div class="step">
+          <span class="num">04</span>
+          <h3>Start regular classes</h3>
+          <p>Weekly recurring lessons at the same time, with monthly progress updates by email.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEACHERS -->
+  <section id="teachers">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Meet the teachers</span>
+        <h2>A small panel of vetted tutors, not a marketplace of strangers.</h2>
+        <p>Every teacher below is interviewed on Tajweed accuracy, teaching manner with children, and English fluency before ever meeting a student.</p>
+      </div>
+      <div class="teacher-grid">
+        <div class="teacher-card">
+          <div class="avatar">QH</div>
+          <h3>Qari Hamzah</h3>
+          <div class="role">Male tutor · Hifz &amp; Tajweed</div>
+          <p>Al-Azhar graduate, Ijazah in Hafs recitation. Specialises in teenage and adult Hifz students.</p>
+          <div class="tags"><span>English</span><span>Urdu</span><span>Arabic</span></div>
+        </div>
+        <div class="teacher-card">
+          <div class="avatar">UA</div>
+          <h3>Ustadha Amina</h3>
+          <div class="role">Female tutor · Kids &amp; beginners</div>
+          <p>Ten years teaching Noorani Qaida to young children, known for patient, game-based lessons.</p>
+          <div class="tags"><span>English</span><span>Arabic</span></div>
+        </div>
+        <div class="teacher-card">
+          <div class="avatar">SB</div>
+          <h3>Sheikh Bilal</h3>
+          <div class="role">Male tutor · Islamic Studies</div>
+          <p>Teaches Seerah, Fiqh essentials and Arabic grammar with a discussion-led, question-friendly style.</p>
+          <div class="tags"><span>English</span><span>Arabic</span></div>
+        </div>
+        <div class="teacher-card">
+          <div class="avatar">MF</div>
+          <h3>Ustadha Maryam</h3>
+          <div class="role">Female tutor · Sisters &amp; adults</div>
+          <p>Focuses on adult learners returning to the Qur'an, working around busy family and work schedules.</p>
+          <div class="tags"><span>English</span><span>Urdu</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMEZONE STRIP -->
+  <section class="tz-strip" style="padding:0;">
+    <div class="wrap tz-grid">
+      <div>
+        <span class="eyebrow" style="color:var(--gold-light)">Built for time-zone gaps</span>
+        <h2>Morning in New York. Evening in London. Same lesson, same teacher, no confusion.</h2>
+        <p style="color:#d7e6e2; max-width:44ch; margin-top:14px;">We schedule every class in the student's local time and confirm it in writing — no mental math, no missed sessions after clocks change.</p>
+      </div>
+      <div class="tz-clock">
+        <div><div class="city">London (GMT/BST)</div><div class="time">4:30 PM</div></div>
+        <div><div class="city">New York (EST)</div><div class="time">11:30 AM</div></div>
+        <div><div class="city">Los Angeles (PST)</div><div class="time">8:30 AM</div></div>
+        <div><div class="city">Sydney (AEST)</div><div class="time">1:30 AM +1</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="wrap" style="text-align:center;">
+      <div class="section-head" style="margin-left:auto;margin-right:auto;">
+        <span class="eyebrow">Pricing</span>
+        <h2>One student, one teacher, one simple monthly fee.</h2>
+        <p>All plans include a free trial class, a written learning plan and monthly progress reports.</p>
+      </div>
+      <div class="price-toggle" role="group" aria-label="Currency toggle">
+        <button id="btnGBP" class="active" onclick="setCurrency('GBP')">GBP £</button>
+        <button id="btnUSD" onclick="setCurrency('USD')">USD $</button>
+      </div>
+      <div class="price-grid" style="text-align:left;">
+        <div class="price-card">
+          <h3>Starter</h3>
+          <div class="sub">2 classes / week · 30 min</div>
+          <div class="price-amount"><span class="amt" data-gbp="45" data-usd="59">£45</span><span>/month</span></div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2"/></svg>2× 30-minute classes weekly</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2"/></svg>Free trial class</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2"/></svg>Monthly progress note</li>
+          </ul>
+          <a href="#trial" class="btn btn-ghost">Choose Starter</a>
+        </div>
+        <div class="price-card popular">
+          <h3>Standard</h3>
+          <div class="sub">3 classes / week · 30 min</div>
+          <div class="price-amount"><span class="amt" data-gbp="65" data-usd="85">£65</span><span>/month</span></div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2"/></svg>3× 30-minute classes weekly</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2"/></svg>Free trial class</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2"/></svg>Written learning plan</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2"/></svg>Priority rescheduling</li>
+          </ul>
+          <a href="#trial" class="btn btn-gold">Choose Standard</a>
+        </div>
+        <div class="price-card">
+          <h3>Intensive</h3>
+          <div class="sub">5 classes / week · 30 min</div>
+          <div class="price-amount"><span class="amt" data-gbp="95" data-usd="125">£95</span><span>/month</span></div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2"/></svg>5× 30-minute classes weekly</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2"/></svg>Free trial class</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2"/></svg>Best suited to Hifz students</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2"/></svg>Fortnightly progress calls</li>
+          </ul>
+          <a href="#trial" class="btn btn-ghost">Choose Intensive</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament-divider">
+    <span class="line"></span>
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 4 L23 16 L35 13 L26 20 L35 27 L23 24 L20 36 L17 24 L5 27 L14 20 L5 13 L17 16 Z" stroke="#AD8A34" stroke-width="1.2"/></svg>
+    <span class="line"></span>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <section id="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What families say</span>
+        <h2>Real feedback from parents and students abroad.</h2>
+      </div>
+      <div class="test-grid">
+        <div class="test-card">
+          <p class="quote">"Our son used to dread Qur'an lessons after a long school day. Ustadha Amina made it something he actually looks forward to."</p>
+          <div class="who">Sarah K.</div>
+          <div class="where">London, UK</div>
+        </div>
+        <div class="test-card">
+          <p class="quote">"Being three hours behind the UK made every other academy a hassle to book with. Here, the schedule just works around us."</p>
+          <div class="who">Imran A.</div>
+          <div class="where">Houston, USA</div>
+        </div>
+        <div class="test-card">
+          <p class="quote">"I started as an adult beginner and was nervous about my accent. Sheikh Bilal never once made me feel behind."</p>
+          <div class="who">Fatima R.</div>
+          <div class="where">Toronto, Canada</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap" style="max-width:820px;">
+      <div class="section-head">
+        <span class="eyebrow">Frequently asked</span>
+        <h2>Good to know before you book.</h2>
+      </div>
+      <div id="faqList">
+        <div class="faq-item">
+          <button class="faq-q"><span>Is the trial class really free?</span><span class="plus"></span></button>
+          <div class="faq-a"><p>Yes. You meet the teacher, they assess level and comfort, and you decide afterwards whether to continue — no card details required for the trial.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>What software do we need?</span><span class="plus"></span></button>
+          <div class="faq-a"><p>Classes run over Zoom or Skype, whichever you prefer. A laptop, tablet or smartphone with a camera and stable internet is all that's needed.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Can I choose a male or female teacher?</span><span class="plus"></span></button>
+          <div class="faq-a"><p>Yes. Tell us your preference when booking — we have dedicated female tutors for sisters and young children, and male tutors for older boys and adult men.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>What if we need to reschedule a class?</span><span class="plus"></span></button>
+          <div class="faq-a"><p>Give at least 12 hours' notice via WhatsApp and we'll move the class to another slot that week — no charge, no questions asked.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Do you teach complete beginners with no Arabic at all?</span><span class="plus"></span></button>
+          <div class="faq-a"><p>Absolutely — most students start with Noorani Qaida, which assumes no prior knowledge of Arabic letters at all.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>How do you take payment?</span><span class="plus"></span></button>
+          <div class="faq-a"><p>Monthly by card or PayPal, billed in GBP or USD. There's no long-term contract — you can pause or cancel with a month's notice.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / FORM -->
+  <section id="trial" class="cta-band">
+    <div class="wrap cta-grid">
+      <div>
+        <span class="eyebrow" style="color:var(--gold-light)">Book your free trial</span>
+        <h2>Let's find the right teacher for your family.</h2>
+        <p>Fill in the form and we'll reply within one business day with two or three time slots that suit your time zone.</p>
+        <div class="contact-list">
+          <a href="https://wa.me/923319843096" target="_blank" rel="noopener">WhatsApp: +92 331 9843096</a>
+          <a href="mailto:rehanullahqari@gmail.com">rehanullahqari@gmail.com</a>
+        </div>
+      </div>
+      <form class="trial-form" id="trialForm">
+        <div class="form-row">
+          <div>
+            <label for="parentName">Your name</label>
+            <input id="parentName" name="parentName" type="text" placeholder="e.g. Sarah Khan" required>
+          </div>
+          <div>
+            <label for="country">Country</label>
+            <input id="country" name="country" type="text" placeholder="e.g. United Kingdom" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required>
+          </div>
+          <div>
+            <label for="whatsapp">WhatsApp number</label>
+            <input id="whatsapp" name="whatsapp" type="tel" placeholder="+44 7000 000000">
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="course">Course of interest</label>
+            <select id="course" name="course">
+              <option>Noorani Qaida</option>
+              <option>Qur'an Reading with Tajweed</option>
+              <option>Hifz (Memorisation)</option>
+              <option>Islamic Studies</option>
+              <option>Arabic Language</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div>
+            <label for="teacherPref">Teacher preference</label>
+            <select id="teacherPref" name="teacherPref">
+              <option>No preference</option>
+              <option>Female teacher</option>
+              <option>Male teacher</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label for="message">Anything else we should know</label>
+          <textarea id="message" name="message" rows="3" placeholder="Student's age, current level, best times to reach you..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold" style="margin-top:6px;">Request my free trial</button>
+        <p class="form-note" id="formStatus"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">
+          <svg width="26" height="26" viewBox="0 0 40 40" fill="none"><path d="M20 3 L23 15 L35 12 L26 20 L35 28 L23 25 L20 37 L17 25 L5 28 L14 20 L5 12 L17 15 Z" stroke="#D8BC78" stroke-width="1.3"/></svg>
+          Noor Quran Academy
+        </div>
+        <p style="max-width:32ch;">Live one-to-one online Qur'an classes for children and adults, taught by certified teachers, scheduled around your time zone.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#teachers">Teachers</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>We teach students in</h4>
+        <ul>
+          <li>United Kingdom</li>
+          <li>United States</li>
+          <li>Canada &amp; Australia</li>
+          <li>+ 20 other countries</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:rehanullahqari@gmail.com">rehanullahqari@gmail.com</a></li>
+          <li><a href="https://wa.me/923319843096" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="#trial">Book a free trial</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Noor Quran Academy. All rights reserved.</span>
+      <span>Made for students learning far from home.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // mobile nav
+  const burger = document.getElementById('burgerBtn');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('mobile-open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('mobile-open');
+    burger.setAttribute('aria-expanded', false);
+  }));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => {
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // currency toggle
+  function setCurrency(cur){
+    document.querySelectorAll('.amt').forEach(el => {
+      const val = cur === 'GBP' ? el.dataset.gbp : el.dataset.usd;
+      const symbol = cur === 'GBP' ? '£' : '$';
+      el.textContent = symbol + val;
+    });
+    document.getElementById('btnGBP').classList.toggle('active', cur === 'GBP');
+    document.getElementById('btnUSD').classList.toggle('active', cur === 'USD');
+  }
+
+  // trial form (static demo — no backend wired up)
+  document.getElementById('trialForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('formStatus').textContent =
+      "Thanks — this is a demo form. Connect it to your email or booking system to go live.";
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
